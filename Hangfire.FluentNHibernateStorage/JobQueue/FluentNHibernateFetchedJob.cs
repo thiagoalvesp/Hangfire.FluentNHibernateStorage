@@ -9,7 +9,7 @@ namespace Hangfire.FluentNHibernateStorage.JobQueue
     {
         private static readonly ILog Logger = LogProvider.GetCurrentClassLogger();
 
-        private readonly long _id;
+        private readonly int _id;
         private readonly FluentNHibernateJobStorage _storage;
         private bool _disposed;
         private bool _removedFromQueue;

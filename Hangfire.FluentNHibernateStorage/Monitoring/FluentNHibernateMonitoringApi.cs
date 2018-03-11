@@ -77,7 +77,7 @@ namespace Hangfire.FluentNHibernateStorage.Monitoring
 
         public JobDetailsDto JobDetails(string jobId)
         {
-            var converter = StringToInt64Converter.Convert(jobId);
+            var converter = StringToInt32Converter.Convert(jobId);
             if (!converter.Valid)
             {
                 return null;
@@ -446,7 +446,7 @@ namespace Hangfire.FluentNHibernateStorage.Monitoring
 
         private JobList<EnqueuedJobDto> EnqueuedJobs(
             SessionWrapper session,
-            IEnumerable<long> jobIds)
+            IEnumerable<int> jobIds)
         {
             var jobs = session.Query<_Job>().Where(i => jobIds.Contains(i.Id)).ToList();
 
@@ -464,7 +464,7 @@ namespace Hangfire.FluentNHibernateStorage.Monitoring
 
         private JobList<FetchedJobDto> FetchedJobs(
             SessionWrapper session,
-            IEnumerable<long> jobIds)
+            IEnumerable<int> jobIds)
         {
             var result = new List<KeyValuePair<string, FetchedJobDto>>();
 

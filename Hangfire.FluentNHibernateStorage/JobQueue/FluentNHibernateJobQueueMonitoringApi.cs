@@ -36,7 +36,7 @@ namespace Hangfire.FluentNHibernateStorage.JobQueue
             }
         }
 
-        public IEnumerable<long> GetEnqueuedJobIds(string queue, int from, int perPage)
+        public IEnumerable<int> GetEnqueuedJobIds(string queue, int from, int perPage)
         {
             return _storage.UseSession(session =>
             {
@@ -51,7 +51,7 @@ namespace Hangfire.FluentNHibernateStorage.JobQueue
         }
 
 
-        public IEnumerable<long> GetFetchedJobIds(string queue, int from, int perPage)
+        public IEnumerable<int> GetFetchedJobIds(string queue, int from, int perPage)
         {
             //return Enumerable.Empty<long>();
             return _storage.UseSession(session =>
